@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://process.env.DB_USER:process.env.DB_PASSWORD@cluster0.ptcwpe2.mongodb.net/todolistDB")
+mongoose.connect("mongodb+srv://" + process.env.DB_USER + ":" + process.env.DB_PASSWORD + "@cluster0.ptcwpe2.mongodb.net/todolistDB")
 
 //schema
 const itemsSchema = {
