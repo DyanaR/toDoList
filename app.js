@@ -43,6 +43,7 @@ const listSchema = {
 
 const List = mongoose.model("List", listSchema);
 
+//get request to home route
 app.get("/", function(req, res) {
   Item.find({}, function(err, foundItems) {
     if (foundItems.length === 0) {
@@ -63,6 +64,7 @@ app.get("/", function(req, res) {
   });
 });
 
+//get request to custom route
 app.get("/:customListName", function(req, res) {
   const customListName = _.capitalize(req.params.customListName);
   List.findOne({
@@ -88,6 +90,7 @@ app.get("/:customListName", function(req, res) {
   });
 });
 
+//post request to home route
 app.post("/", function(req, res) {
 
   const itemName = req.body.newItem;
@@ -109,6 +112,7 @@ app.post("/", function(req, res) {
   }
 });
 
+//post request to delete route
 app.post("/delete", function(req, res) {
   const checkItemId = req.body.checkbox;
   const listName = req.body.listName;
